@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Telepronter con jQuery</title>
+    <meta name="author" content="francesc ricart" />
+    <style>
+        * {
+            box-sizing: border-box;
+            font-size: 26px;
+        }
+        
+        #marquee {
+            width: 600px;
+            padding: 15px 30px;
+            border: 1px solid #252525;
+            background-color: #f6f6f6;
+            overflow: hidden;
+            position: relative
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="marquee"></div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(telepronter)
+
+        function telepronter() {
+            var contenidoMarquee = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis cum laborum quam voluptates magnam adipisci, eaque eum quo ipsam voluptatem accusantium molestiae quia nihil architecto, praesentium delectus aperiam qui maiores.";
+            nodoAnimado = document.createElement("p");
+            $(nodoAnimado).html(contenidoMarquee);
+            $(nodoAnimado).css({
+                "white-space": "nowrap",
+                "position": "relative"
+            })
+            $("#marquee").html(nodoAnimado);
+            $(nodoAnimado).animate({
+                "left": "-900px"
+            }, 15000, telepronter)
+        }
+    </script>
+
+</body>
+
+</html>
